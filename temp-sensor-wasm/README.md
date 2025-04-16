@@ -1,4 +1,4 @@
-# WASM Micro Runtime (WAMR) over ESP32
+~# WASM Micro Runtime (WAMR) over ESP32
 This is an attempt to run WASM (Web Assembly) over ESP32 using the [wasm-micro-runtime](https://github.com/bytecodealliance/wasm-micro-runtime) project.
 
 This is an extraction of the sample project [already available](https://github.com/bytecodealliance/wasm-micro-runtime/tree/main/product-mini/platforms/esp-idf) along with WAMR. Further to that we test support for Rust compiled wasm binary as well.
