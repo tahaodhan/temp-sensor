@@ -59,20 +59,17 @@ int main(int argc, char **argv) {
 
         uint64_t end_time = get_timestamp();
         uint64_t latency = end_time - start_time;
-        int free_heap = get_free_heap();
 
-        int raw = (int)(temperature * 100);
-        int avg = (int)(avg_temp * 100);
+        char log_buffer[128];
+        // sprintf(log_buffer, "%s: Raw Temp: %.2f C, Filtered Temp: %.2f C, Latency: %llu us", TAG, temperature, avg_temp, latency);
+        print_debug(log_buffer);
 
-        char buf[64];
+        if (index % 10 == 0) {
+            // sprintf(log_buffer, "%s: Free heap: %d bytes", TAG, get_free_heap());
+            print_debug(log_buffer);
+        }
 
-        print_debug("RESULT,sensor_test,wasm,");
-        itoa_simple(BASE_RUN_ID + i, buf); print_debug(buf); print_debug(",");
-        itoa_simple(raw, buf);              print_debug(buf); print_debug(",");
-        itoa_simple(avg, buf);              print_debug(buf); print_debug(",");
-        itoa_simple((int)latency, buf);     print_debug(buf); print_debug(",");
-        itoa_simple(free_heap, buf);        print_debug(buf);
-
+        print_debug("TEMP_SENSOR: Entering light sleep...");
         enter_light_sleep();
     }
 
