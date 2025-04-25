@@ -46,11 +46,11 @@ int main(int argc, char **argv) {
         uint64_t latency = end_time - start_time;
 
         char log_buffer[128];
-        sprintf(log_buffer, "%s: Raw Temp: %.2f C, Filtered Temp: %.2f C, Latency: %llu us", TAG, temperature, avg_temp, latency);
+        // sprintf(log_buffer, "%s: Raw Temp: %.2f C, Filtered Temp: %.2f C, Latency: %llu us", TAG, temperature, avg_temp, latency);
         print_debug(log_buffer);
 
         if (index % 10 == 0) {
-            sprintf(log_buffer, "%s: Free heap: %d bytes", TAG, get_free_heap());
+            // sprintf(log_buffer, "%s: Free heap: %d bytes", TAG, get_free_heap());
             print_debug(log_buffer);
         }
 
